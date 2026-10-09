@@ -1,0 +1,109 @@
+<!doctype html>
+<!-- GRAVE ERROR — DESIGN OPTION C "SIGNAL": retro/VHS glitch. Scanlines, chromatic aberration, CRT "error" corruption typography. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GRAVE ERROR // SIGNAL LOST</title>
+<meta name="description" content="GRAVE ERROR — an undead survival horror game by Atheos Studios.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#05060a;--green:#37f2b3;--cyan:#39d7ff;--mag:#ff2e63;--fg:#d6f5ec;--dim:#5f7a72}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--fg);font-family:"Share Tech Mono",monospace;line-height:1.6;overflow-x:hidden}
+  /* CRT scanlines + vignette */
+  body::before{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;
+    background:repeating-linear-gradient(rgba(0,0,0,0) 0 2px,rgba(0,0,0,.35) 2px 3px);mix-blend-mode:multiply}
+  body::after{content:"";position:fixed;inset:0;z-index:59;pointer-events:none;
+    background:radial-gradient(120% 100% at 50% 50%,transparent 55%,rgba(0,0,0,.75));animation:flicker 5s infinite}
+  @keyframes flicker{0%,97%,100%{opacity:1}98%{opacity:.82}99%{opacity:.93}}
+  .badge{position:fixed;top:10px;right:10px;z-index:70;font-family:"VT323";font-size:14px;letter-spacing:.1em;color:var(--dim);border:1px solid #17352c;background:rgba(0,0,0,.5);padding:3px 8px}
+  .wrap{max-width:900px;margin:0 auto;padding:0 22px}
+  .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:70px 0}
+  .sys{font-family:"VT323";font-size:clamp(16px,2.4vw,20px);color:var(--green);letter-spacing:.06em;opacity:.9}
+  .sys .blink{animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  h1{font-family:"VT323";font-weight:400;line-height:.9;margin:14px 0 6px;text-transform:uppercase;
+     font-size:clamp(4rem,19vw,11rem);color:var(--fg)}
+  h1 .glitch{position:relative;display:inline-block;color:var(--mag)}
+  h1 .glitch::before,h1 .glitch::after{content:"ERROR";position:absolute;left:0;top:0;width:100%;overflow:hidden}
+  h1 .glitch::before{color:var(--cyan);animation:g1 2.6s infinite linear alternate}
+  h1 .glitch::after{color:var(--green);animation:g2 3.4s infinite linear alternate}
+  @keyframes g1{0%,80%,100%{clip-path:inset(0 0 85% 0);transform:translateX(0)}82%{transform:translateX(-4px)}88%{clip-path:inset(30% 0 40% 0);transform:translateX(3px)}}
+  @keyframes g2{0%,75%,100%{clip-path:inset(80% 0 0 0);transform:translateX(0)}78%{transform:translateX(4px)}85%{clip-path:inset(45% 0 25% 0);transform:translateX(-3px)}}
+  .tag{font-family:"VT323";font-size:clamp(18px,3vw,26px);color:var(--green);margin-top:10px}
+  .tag .cur{color:var(--fg)}
+  .panel{margin-top:34px;border:1px solid #14342b;background:rgba(10,24,20,.5);padding:20px 22px;max-width:560px}
+  .panel p{font-size:.95rem;color:var(--fg)}
+  .panel .label{color:var(--cyan);font-family:"VT323";font-size:1.1rem;letter-spacing:.1em}
+  .cta{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+  a.btn,button.btn{font-family:"VT323";font-size:1.15rem;letter-spacing:.08em;text-decoration:none;padding:10px 20px;cursor:pointer;border:1px solid var(--green);background:transparent;color:var(--green);transition:.15s}
+  a.btn:hover,button.btn:hover{background:var(--green);color:#04120d;box-shadow:0 0 18px rgba(55,242,179,.5)}
+  .btn.alt{border-color:var(--cyan);color:var(--cyan)}
+  .btn.alt:hover{background:var(--cyan);color:#04120d;box-shadow:0 0 18px rgba(57,215,255,.5)}
+  section{border-top:1px solid #10281f;padding:56px 0}
+  form{display:flex;gap:10px;flex-wrap:wrap;max-width:520px}
+  input{flex:1;min-width:220px;font-family:"Share Tech Mono";background:#04100c;border:1px solid #14342b;color:var(--fg);padding:12px 14px}
+  input:focus{outline:none;border-color:var(--green);box-shadow:0 0 12px rgba(55,242,179,.35)}
+  .thanks{color:var(--green);font-family:"VT323";font-size:1.2rem;margin-top:14px;min-height:1.4em}
+  .studio{color:var(--dim);font-family:"VT323";font-size:1.1rem;letter-spacing:.05em}
+  .studio a{color:var(--green);text-decoration:none}
+  .studio a:hover{color:var(--cyan)}
+  .social{display:flex;gap:20px;margin-top:14px;font-family:"VT323";font-size:1.1rem}
+  .social a{color:var(--dim);text-decoration:none}
+  .social a:hover{color:var(--green)}
+  footer{padding:26px 0 50px;color:#2f4a42;font-family:"VT323";font-size:1rem;text-align:center}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}h1 .glitch::before,h1 .glitch::after{display:none}}
+</style>
+</head>
+<body>
+<div class="badge">PREVIEW MOCKUP · OPTION C — SIGNAL</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="sys">&gt; booting AtheosOS v0.9 ... signal unstable<span class="blink">_</span></p>
+    <h1>GRAVE<br><span class="glitch" data-text="ERROR">ERROR</span></h1>
+    <p class="tag">// undead survival horror <span class="cur">[ COMING SOON ]</span></p>
+    <div class="panel">
+      <p class="label">&gt; TRANSMISSION</p>
+      <p>The outbreak isn't spreading. It's <em>rebooting</em>. Survive the nights. Decode the signal. Find out what patched the dead back in.</p>
+    </div>
+    <div class="cta">
+      <a class="btn" href="#notify">&gt; NOTIFY_ME</a>
+      <a class="btn alt" href="#" aria-label="Wishlist on Steam (placeholder)">&gt; WISHLIST_STEAM</a>
+    </div>
+  </div>
+</header>
+
+<section id="notify">
+  <div class="wrap">
+    <p class="sys" style="margin-bottom:16px">&gt; register for signal ping:</p>
+    <form id="signup">
+      <input type="email" name="email" placeholder="enter.email@node" required aria-label="Email address">
+      <button class="btn" type="submit">&gt; SUBMIT</button>
+    </form>
+    <p class="thanks" id="thanks" role="status"></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="studio">&gt; an <a href="https://atheosstudios.com">ATHEOS_STUDIOS</a> game</p>
+    <div class="social"><a href="#">[X]</a><a href="#">[DISCORD]</a><a href="#">[YOUTUBE]</a></div>
+  </div>
+</section>
+
+<footer>© <span id="y"></span> ATHEOS STUDIOS // GRAVE ERROR // SIGNAL LOST</footer>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+  document.getElementById("signup").addEventListener("submit",function(e){
+    e.preventDefault();
+    document.getElementById("thanks").textContent = "> ACK. signal locked. stand by.";
+    this.reset();
+  });
+</script>
+</body>
+</html>

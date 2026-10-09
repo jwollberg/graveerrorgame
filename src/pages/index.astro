@@ -1,0 +1,283 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import Sprite from "../components/Sprite.astro";
+
+// Every claim here comes from the game's own canon, not the old Google Sites page:
+//   C:\Projects\Grave Error\LORE.md (premise + settled facts) and docs\vision.md.
+// Never say: top-down/2D, Unity, Early Access, Steam/wishlist, "coming soon", or any date.
+const ring = "IT BEGAN WITH A SOFTWARE UPDATE · CORE UPDATE 3.0 · THE BODIES GOT BACK UP · ";
+
+// The Grave constellation: the tombstone emblem plus stars at its corners.
+const stars: [number, number, number][] = [
+  [38, 100, 1.3], [82, 100, 1.1], [38, 54, 1.5], [82, 54, 1.2], [60, 32, 2], [57, 52, 0.9], [56, 74, 1],
+  [58, 100, 0.8], [94, 24, 1.7], [25, 84, 0.9], [95, 82, 0.9], [8, 100, 0.7], [112, 100, 0.7],
+];
+
+const notes = [
+  {
+    title: "They smell you.",
+    text: "The flaw tuned the nanobots in a Hack's nose to living skin and fresh blood. Your scent carries downwind, so keep the wind in your face.",
+  },
+  {
+    title: "Daylight slows them.",
+    text: "Hacks are sluggish in bright light. In the dark they're a lot more active.",
+  },
+  {
+    title: "Only the brain counts.",
+    text: "Destroy a Hack's heart or lungs and it keeps coming at a walk. A severed head keeps biting.",
+  },
+  {
+    title: "Wounds close.",
+    text: "A Hack doesn't bleed out. Its nanobots seal an opened vessel in about a second.",
+  },
+  {
+    title: "Hunger isn't why.",
+    text: "A Hack that has eaten can't feed again for about a day. It goes on hunting anyway.",
+  },
+  {
+    title: "Cold brings them back.",
+    text: "Someone killed in warm weather stays dead. Where a body lies below about 8 °C, it gets up again in about two days.",
+  },
+];
+
+const facts = ["First-person", "Solo or co-op, 2–4 players", "PC", "Realism first", "Coming eventually"];
+---
+
+<SiteLayout>
+  <Sprite />
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="hdr" id="hdr">
+    <div class="wrap">
+      <a class="wordmark" href="#top" aria-label="Grave Error home"><b>GRAVE ERROR</b><small>Atheos Studios</small></a>
+      <button class="menubtn" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a href="#update">The update</a>
+        <a href="#hacks">The Hacks</a>
+        <a href="#world">The world</a>
+        <a class="cta" href="https://atheosstudios.com">Atheos Studios ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="h1">
+      <svg class="sky" id="sky" aria-hidden="true" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1600 1000"></svg>
+
+      <!-- The dial, as on atheosstudios.com; one ring slips out of true now and then -->
+      <svg class="dial" viewBox="0 0 1000 1000" aria-hidden="true">
+        <defs><path id="ring" d="M500 500m-392 0a392 392 0 1 1 784 0a392 392 0 1 1-784 0"></path></defs>
+        <g fill="none" stroke="currentColor">
+          <circle cx="500" cy="500" r="470" stroke-opacity=".12"></circle>
+          <g class="spin rev"><circle cx="500" cy="500" r="452" stroke-opacity=".22" stroke-width="10" stroke-dasharray="1.2 8.66"></circle></g>
+          <circle cx="500" cy="500" r="436" stroke-opacity=".16"></circle>
+          <circle cx="500" cy="500" r="356" stroke-opacity=".14"></circle>
+          <g class="jolt"><g class="spin fast"><circle cx="500" cy="500" r="330" stroke-opacity=".1" stroke-width="16" stroke-dasharray="6 8.6"></circle></g></g>
+          <circle cx="500" cy="500" r="312" stroke-opacity=".16"></circle>
+          <g class="spin rev">
+            <circle cx="500" cy="500" r="250" stroke-opacity=".14" stroke-dasharray="2 6"></circle>
+            <circle cx="250" cy="500" r="5" fill="currentColor" fill-opacity=".55" stroke="none"></circle>
+            <circle cx="750" cy="500" r="3" fill="currentColor" fill-opacity=".45" stroke="none"></circle>
+          </g>
+          <g class="spin">
+            <circle cx="500" cy="500" r="190" stroke-opacity=".1"></circle>
+            <circle cx="500" cy="310" r="4" fill="currentColor" fill-opacity=".5" stroke="none"></circle>
+          </g>
+          <path d="M500 20V180M500 820V980M20 500H180M820 500H980" stroke-opacity=".12"></path>
+        </g>
+        <g class="spin">
+          <text><textPath href="#ring" textLength="2462" lengthAdjust="spacing">{ring + ring}</textPath></text>
+        </g>
+      </svg>
+
+      <div class="hero-copy">
+        <p class="eyebrow" data-reveal>An Atheos Studios game</p>
+        <h1 id="h1" data-reveal><span class="glitch" data-text="Grave Error">Grave Error</span></h1>
+        <p class="tag" data-reveal>You don't beat this world. You outlast it.</p>
+        <p class="sub" data-reveal>
+          First-person zombie survival in a procedurally generated America. Play it alone or with up to three friends.
+        </p>
+        <div data-reveal><span class="pill">PC · Coming eventually</span></div>
+        <div class="actions" data-reveal>
+          <a class="btn btn-solid" href="#update">How it started <span aria-hidden="true">↓</span></a>
+          <a class="btn btn-ghost" href="https://atheosstudios.com">Atheos Studios ↗</a>
+        </div>
+      </div>
+      <a class="cue" href="#update">The update</a>
+    </section>
+
+    <section class="sec" id="update" aria-labelledby="update-h">
+      <div class="wrap premise">
+        <div class="chart" data-reveal aria-hidden="true">
+          <svg class="frame" viewBox="0 0 120 120">
+            <g fill="none" stroke="currentColor" stroke-width=".25">
+              <circle cx="60" cy="60" r="59" stroke-opacity=".3"></circle>
+              <circle cx="60" cy="60" r="56" stroke-opacity=".14" stroke-dasharray=".3 1.2" stroke-width="1.6"></circle>
+              <ellipse cx="60" cy="60" rx="24" ry="59" stroke-opacity=".08"></ellipse>
+              <ellipse cx="60" cy="60" rx="46" ry="59" stroke-opacity=".08"></ellipse>
+              <path d="M1 60H119M5 40Q60 30 115 40M5 80Q60 90 115 80" stroke-opacity=".08"></path>
+            </g>
+          </svg>
+          <svg viewBox="-14 -12 148 148">
+            <g class="lines"><use href="#em-ge"></use></g>
+            <g class="stars">
+              {stars.map(([cx, cy, r]) => <circle cx={cx} cy={cy} r={r} />)}
+              <text x="63" y="29">α</text><text x="97" y="21">β</text><text x="41" y="51">γ</text>
+            </g>
+          </svg>
+          <span class="label">Γ · The Grave</span>
+        </div>
+        <div data-reveal>
+          <p class="eyebrow">I · The update</p>
+          <h2 id="update-h">It began with a software update.</h2>
+          <p class="body strong">
+            The HACK program put adaptive nanobots in billions of minds. Then Core Update 3.0 shipped with a fatal flaw,
+            and the bodies got back up.
+          </p>
+          <p class="body">
+            In a few people the implants never took. They're called Nulls, and you're one of them. You can't turn. You
+            can still die.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="hacks" aria-labelledby="hacks-h">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <div>
+            <p class="eyebrow">II · The Hacks</p>
+            <h2 id="hacks-h">Notes on the Hacks</h2>
+          </div>
+          <p class="aside">Every Hack used to live or work near where you find it. This is what's known about them so far.</p>
+        </div>
+        <ol class="notes" data-reveal>
+          {
+            notes.map((n, i) => (
+              <li>
+                <span class="n">{String(i + 1).padStart(2, "0")}</span>
+                <h3>{n.title}</h3>
+                <p>{n.text}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section class="sec" id="world" aria-labelledby="world-h">
+      <div class="wrap">
+        <p class="eyebrow" data-reveal>III · The world</p>
+        <div class="world" data-reveal>
+          <h2 id="world-h">A planet's worth of America.</h2>
+          <div>
+            <p>
+              The world is generated from a seed, and it's the size of the Earth: continents and islands, every one of them
+              present-day America for now. Towns and cities are laid out street by street, and you can go into any building
+              in them.
+            </p>
+            <p>
+              Getting somewhere on foot can take hours. That's on purpose. There's a real day and night, the weather matters,
+              and hordes aren't scheduled. They gather on their own, drawn by noise, light and smell, or just drifting the
+              same way.
+            </p>
+          </div>
+        </div>
+        <ul class="facts" data-reveal>{facts.map((f) => <li>{f}</li>)}</ul>
+      </div>
+    </section>
+
+    <section class="sec" id="studio" aria-label="The studio">
+      <div class="wrap credit" data-reveal>
+        <svg role="img" aria-label="Atheos Studios"><use href="#logo"></use></svg>
+        <p>
+          Grave Error is made by Atheos Studios, an independent game studio. We build our own engines, which is part of why
+          this is taking a while.
+        </p>
+        <a class="more" href="https://atheosstudios.com">atheosstudios.com <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <a class="wordmark" href="#top" aria-label="Back to top"><b>GRAVE ERROR</b><small>Atheos Studios</small></a>
+      <small>© 2026 Atheos Studios · graveerrorgame.com</small>
+    </div>
+  </footer>
+
+  <script is:inline>
+    document.documentElement.classList.add("js");
+    (function () {
+      // Star field: fixed seed so every visit shows the same sky.
+      var sky = document.getElementById("sky"),
+        s = 13,
+        NS = "http://www.w3.org/2000/svg";
+      function r() {
+        s = (s * 16807) % 2147483647;
+        return s / 2147483647;
+      }
+      for (var i = 0; i < 170; i++) {
+        var c = document.createElementNS(NS, "circle");
+        var big = r() > 0.93;
+        c.setAttribute("cx", (r() * 1600).toFixed(1));
+        c.setAttribute("cy", (r() * 1000).toFixed(1));
+        c.setAttribute("r", big ? (1.3 + r() * 0.9).toFixed(2) : (0.4 + r() * 0.7).toFixed(2));
+        c.setAttribute("opacity", (big ? 0.55 : 0.18 + r() * 0.35).toFixed(2));
+        if (r() > 0.82) {
+          c.setAttribute("class", "tw");
+          c.style.animationDelay = (r() * 5).toFixed(2) + "s";
+        }
+        sky.appendChild(c);
+      }
+
+      // Header turns solid once you scroll.
+      var h = document.getElementById("hdr");
+      function hs() {
+        h.classList.toggle("solid", window.scrollY > 40);
+      }
+      hs();
+      addEventListener("scroll", hs, { passive: true });
+
+      // Phone menu.
+      var b = document.querySelector(".menubtn"),
+        n = document.getElementById("nav");
+      b.addEventListener("click", function () {
+        var o = n.classList.toggle("open");
+        b.setAttribute("aria-expanded", o);
+        b.textContent = o ? "Close" : "Menu";
+        h.classList.add("solid");
+      });
+      n.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          n.classList.remove("open");
+          b.setAttribute("aria-expanded", "false");
+          b.textContent = "Menu";
+        });
+      });
+
+      // Fade sections in as they scroll into view.
+      var els = document.querySelectorAll("[data-reveal]");
+      if (!("IntersectionObserver" in window)) {
+        els.forEach(function (e) {
+          e.classList.add("in");
+        });
+        return;
+      }
+      var io = new IntersectionObserver(
+        function (es) {
+          es.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -8% 0px" }
+      );
+      els.forEach(function (e) {
+        io.observe(e);
+      });
+    })();
+  </script>
+</SiteLayout>
