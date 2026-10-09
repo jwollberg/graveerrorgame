@@ -4,8 +4,10 @@ Read the master workspace guide first: [`..\CLAUDE.md`](../CLAUDE.md). It covers
 shared build recipe (Astro + GitHub Pages) and the publish steps. This file only covers
 what's specific to Grave Error.
 
-- **Domain:** graveerrorgame.com (DNS on Cloudflare). Until this site is published, a
-  Cloudflare redirect sends it to atheosstudios.com.
+- **Domain:** graveerrorgame.com, served by GitHub Pages (repo `jwollberg/graveerrorgame`)
+  through Cloudflare: apex and `www` are proxied CNAMEs to `jwollberg.github.io`, SSL mode
+  "Full", same as atheosstudios.com. The old Page Rule that forwarded it to
+  atheosstudios.com was deleted 2026-10-09.
 - **What it is:** the one-page site for *Grave Error*, the zombie survival game by
   Atheos Studios. Links back to atheosstudios.com.
 - **The old Google Sites page is gone.** It lived in the josh@atheosstudios.com
@@ -47,6 +49,4 @@ what's specific to Grave Error.
   dashes, rule-of-three lists, slogan filler). Neutral "we"; never imply a team and
   never say solo.
 
-**Status:** built and committed locally (2026-10-09). Not published yet: it needs a
-GitHub repo with Pages turned on, and the Cloudflare redirect replaced with GitHub
-Pages DNS records.
+**Status:** live at graveerrorgame.com (shipped 2026-10-09). Push to `main` = deploy.

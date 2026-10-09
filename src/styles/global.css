@@ -223,7 +223,8 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    width: min(1040px, 165vw);
+    /* capped by screen height too, so the turning ring stays clear of the header */
+    width: min(1040px, 165vw, 104svh);
     height: auto;
     aspect-ratio: 1;
     transform: translate(-50%, -50%);
